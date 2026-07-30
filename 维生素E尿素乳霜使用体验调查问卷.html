@@ -671,6 +671,25 @@
 
 <script>
 // ============================================================
+//  配置区 - 部署Google Apps Script后替换此URL
+// ============================================================
+
+const CONFIG = {
+  ENDPOINT_URL: null,  // 如: 'https://script.google.com/macros/s/xxx/exec'
+  SHEET_ID: '备案版',
+};
+
+function postToServer(data) {
+  if (!CONFIG.ENDPOINT_URL) return Promise.resolve(null);
+  return fetch(CONFIG.ENDPOINT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  }).catch(err => console.warn('服务端提交失败（可忽略）:', err));
+}
+
+// ============================================================
 //  交互逻辑
 // ============================================================
 
@@ -911,9 +930,14 @@ function submitSurvey() {
   if (nameEl?.value.trim()) data.q35_name = nameEl.value.trim();
   if (phoneEl?.value.trim()) data.q35_phone = phoneEl.value.trim();
 
-  // 保存到 localStorage（可替换为后端接口）
+  // 保存到 localStorage（本地备份）
   const key = 'survey_vE_' + data.id;
   localStorage.setItem(key, JSON.stringify(data));
+
+  // 提交到服务器（非阻塞，不影响用户体验）
+  data._source = '备案版';
+  data._sheetId = CONFIG.SHEET_ID;
+  postToServer(data);
 
   // 显示成功页
   document.getElementById('surveyForm').style.display = 'none';
