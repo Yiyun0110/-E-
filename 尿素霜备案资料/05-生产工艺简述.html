@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生产工艺简述 — 尿素霜</title>
+<style>
+  @page { margin: 12mm 10mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "微软雅黑", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #1a1a1a;
+    padding: 30px 25px;
+    background: #fff;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 20pt;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 10pt;
+    color: #888;
+    margin-bottom: 22px;
+  }
+  .info-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #f7f8fa;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 22px;
+    font-size: 10pt;
+  }
+  .info-bar span { white-space: nowrap; }
+  .info-bar strong { font-weight: 600; }
+
+  .section-title {
+    font-size: 13pt;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    padding-left: 10px;
+    border-left: 4px solid #2563eb;
+  }
+
+  /* 流程图 */
+  .flowchart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 16px 0 20px;
+  }
+  .flow-node {
+    background: #f0f4ff;
+    border: 2px solid #93c5fd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-align: center;
+    min-width: 320px;
+    max-width: 500px;
+    font-size: 10pt;
+    line-height: 1.6;
+  }
+  .flow-node .node-title {
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 2px;
+  }
+  .flow-node .node-detail { font-size: 9pt; color: #333; }
+  .flow-arrow {
+    color: #3b82f6;
+    font-size: 16pt;
+    line-height: 1;
+    padding: 2px 0;
+  }
+  .flow-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .flow-node-sm {
+    background: #f0f4ff;
+    border: 2px solid #93c5fd;
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    min-width: 220px;
+    font-size: 9.5pt;
+  }
+
+  /* 步骤卡片 */
+  .step-card {
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    background: #fafbfc;
+  }
+  .step-card:hover { background: #f0f4ff; }
+  .step-card .step-head {
+    font-weight: 700;
+    font-size: 11pt;
+    color: #1e40af;
+    margin-bottom: 6px;
+  }
+  .step-card ol, .step-card ul {
+    padding-left: 22px;
+    font-size: 10pt;
+    line-height: 1.8;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin-bottom: 16px;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 6px 10px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  th {
+    background: #e9ecef;
+    font-weight: 600;
+  }
+  .left { text-align: left; }
+
+  .note-box {
+    background: #f0f4ff;
+    border: 1px solid #b3c9ff;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 9.5pt;
+    line-height: 1.7;
+    margin: 14px 0;
+  }
+  .warn-box {
+    background: #fff7ed;
+    border: 1px solid #fcd6a5;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 9.5pt;
+    line-height: 1.7;
+    margin: 14px 0;
+  }
+
+  .sign-area {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 10pt;
+  }
+  .sign-line { border-bottom: 1px solid #333; min-width: 160px; display: inline-block; height: 1.2em; }
+
+  .print-footer {
+    margin-top: 28px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 9pt;
+    color: #888;
+    text-align: center;
+  }
+
+  @media print {
+    body { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<h1>化妆品备案——生产工艺简述</h1>
+<p class="subtitle">Production Process Description</p>
+
+<div class="info-bar">
+  <span><strong>产品名称：</strong>[产品名称]</span>
+  <span><strong>配方总量：</strong>[TBD] kg/批次</span>
+  <span><strong>生产环境：</strong>10万级洁净车间</span>
+  <span><strong>主要设备：</strong>真空均质乳化机、油相锅、水相锅、灌装机</span>
+  <span><strong>编制日期：</strong>[ ]</span>
+</div>
+
+<!-- ============ 一、工艺流程图 ============ -->
+<div class="section-title">一、工艺流程图</div>
+
+<div class="flowchart">
+
+  <div class="flow-node">
+    <div class="node-title">🟦 A 相（油相）</div>
+    <div class="node-detail">1618醇 · Montanov 68 · A165 · 霍霍巴油<br>ININ · IPM · GTCC · DC200/350 · 2EHP · 维生素E</div>
+    <div style="font-size:8.5pt; color:#6b7280; margin-top:4px;">↓ 加热至 75-80℃，搅拌至全溶</div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-row">
+    <div class="flow-node-sm">
+      <div class="node-title">🟩 B 相（水相）</div>
+      <div class="node-detail">纯化水 · 甘油 · 丙二醇<br>EDTA二钠 · 卡波姆940</div>
+      <div style="font-size:8.5pt; color:#6b7280;">↓ 加热至 75-80℃</div>
+    </div>
+    <div style="display:flex; align-items:center; font-size:18pt; color:#3b82f6;">→</div>
+    <div class="flow-node-sm" style="background:#fef2f2; border-color:#fca5a5;">
+      <div class="node-title" style="color:#b91c1c;">⚡ 乳化均质</div>
+      <div class="node-detail">75-80℃ · 3000-5000rpm · 15-20min</div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-node">
+    <div class="node-title" style="color:#0891b2;">❄️ 降温至 45-50℃</div>
+    <div class="node-detail">加入尿素（预溶） + 尿囊素（预溶）→ 搅拌</div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-node">
+    <div class="node-title" style="color:#0891b2;">❄️ 降温至 ≤ 40℃</div>
+    <div class="node-detail">加入苯氧乙醇 + 羟苯甲酯 + 羟苯丙酯 → 搅拌均匀</div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-node">
+    <div class="node-title">🔄 调稠 &amp; 脱泡</div>
+    <div class="node-detail">加入黄原胶 → 调稠 → 低速均质脱泡 2-3min</div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-node">
+    <div class="node-title">✅ 检验 → 出料</div>
+    <div class="node-detail">pH · 粘度 · 感官 · 离心稳定性 → 合格后出料</div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-node">
+    <div class="node-title">⏳ 静置陈化 24h</div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-node">
+    <div class="node-title">🧴 灌装 → 封口 → 包装</div>
+    <div class="node-detail">10万级洁净区</div>
+  </div>
+</div>
+
+<!-- ============ 二、详细操作步骤 ============ -->
+<div class="section-title">二、详细操作步骤</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 1：备料</div>
+  <ol>
+    <li>根据配方领用所有原辅料，核对品名、批号、数量</li>
+    <li>检查外包装完整性</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 2：油相（A相）制备</div>
+  <ol>
+    <li>将配方量的 1618醇（鲸蜡硬脂醇）、Montanov 68（鲸蜡硬脂醇/鲸蜡硬脂基葡糖苷）、A165（甘油硬脂酸酯/PEG-100硬脂酸酯）、霍霍巴籽油、ININ（异壬酸异壬酯）、IPM（肉豆蔻酸异丙酯）、GTCC（辛酸/癸酸甘油三酯）、DC200/350（聚二甲基硅氧烷）、2EHP（棕榈酸乙基己酯）、维生素E 依次加入油相锅中</li>
+    <li>开启搅拌（100-200rpm），加热至 75-80℃</li>
+    <li>持续搅拌至所有固体油脂完全熔融，油相呈均匀透明液体</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 3：水相（B相）制备</div>
+  <ol>
+    <li>将配方量的纯化水加入水相锅中</li>
+    <li>加入甘油、丙二醇、EDTA二钠、卡波姆940</li>
+    <li>开启搅拌（100-200rpm），加热至 75-80℃</li>
+    <li>持续搅拌至卡波姆分散均匀，无颗粒团块</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 4：乳化（关键步骤）</div>
+  <ol>
+    <li>确认A相和B相温度均达到 75-80℃</li>
+    <li>开启主乳化锅搅拌（100-150rpm），开启均质器（3000-5000rpm）</li>
+    <li>在搅拌状态下，将A相（油相）<strong>缓慢、均匀</strong>地加入B相（水相）中</li>
+    <li>加完后继续均质 3-5 分钟</li>
+    <li>切换至普通搅拌（100-300rpm），保持 75-80℃ 保温搅拌 15-20 分钟</li>
+    <li>打开取样口观察乳化状态，确保乳液均匀、细腻</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 5：降温与加入活性物</div>
+  <ol>
+    <li>开启冷却水循环，将乳化体系降温至 45-50℃</li>
+    <li>将配方量的尿素和尿囊素用适量纯化水（40-50℃）预溶解</li>
+    <li>将预溶好的尿素和尿囊素溶液加入主乳化锅中</li>
+    <li>搅拌速度 100-200rpm，搅拌至均匀</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 6：加入防腐剂</div>
+  <ol>
+    <li>继续降温至 40℃ 以下</li>
+    <li>依次加入苯氧乙醇、羟苯甲酯、羟苯丙酯</li>
+    <li>搅拌至防腐剂完全分散均匀</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 7：调稠与脱泡</div>
+  <ol>
+    <li>将配方量的黄原胶均匀撒入体系中（<strong>避免结块</strong>）</li>
+    <li>搅拌至黄原胶充分分散，膏体呈现均匀稠度</li>
+    <li>低速均质（1000-2000rpm）2-3分钟，脱除气泡</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 8：出料与陈化</div>
+  <ol>
+    <li>取样进行 pH、粘度、感官、离心稳定性等中间体检验</li>
+    <li>检验合格后，用真空将膏体输送至陈化罐</li>
+    <li>静置陈化 24 小时（常温）</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 9：灌装</div>
+  <ol>
+    <li>在 10万级洁净车间 中进行灌装</li>
+    <li>灌装前清洗/消毒灌装设备及包装容器</li>
+    <li>按规定的净含量进行灌装</li>
+    <li>标注生产批号及限期使用日期</li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <div class="step-head">步骤 10：检验与入库</div>
+  <ol>
+    <li>按产品执行标准进行出厂检验（感官、理化、微生物）</li>
+    <li>合格后出具出厂检验报告</li>
+    <li>入库，按先入先出原则管理</li>
+  </ol>
+</div>
+
+<!-- ============ 三、关键工艺参数一览 ============ -->
+<div class="section-title">三、关键工艺参数一览</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:22%">工艺步骤</th>
+      <th style="width:18%">控制参数</th>
+      <th style="width:20%">标准范围</th>
+      <th style="width:40%">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>A相/B相制备</td><td>温度</td><td>75-80℃</td><td class="left">确保油相全熔、水相分散均匀</td></tr>
+    <tr><td rowspan="3">乳化</td><td>均质速度</td><td>3000-5000 rpm</td><td class="left">形成均匀细腻乳液</td></tr>
+    <tr><td>搅拌速度</td><td>100-300 rpm</td><td class="left">保温搅拌，避免卷入气泡</td></tr>
+    <tr><td>保温时间</td><td>15-20 min</td><td class="left">充分乳化成核</td></tr>
+    <tr><td>降温加活性物</td><td>温度</td><td>45-50℃</td><td class="left">尿素/尿囊素在此温度加入，避免降解</td></tr>
+    <tr><td>加防腐剂</td><td>温度</td><td>≤40℃</td><td class="left">避免防腐剂挥发/降解</td></tr>
+    <tr><td rowspan="2">脱泡</td><td>均质速度</td><td>1000-2000 rpm</td><td class="left">低速均质，仅脱泡不破乳</td></tr>
+    <tr><td>时间</td><td>2-3 min</td><td class="left">—</td></tr>
+    <tr><td>灌装环境</td><td>洁净级别</td><td>10万级</td><td class="left">符合化妆品生产许可要求</td></tr>
+  </tbody>
+</table>
+
+<!-- ============ 四、工艺用水要求 ============ -->
+<div class="section-title">四、工艺用水要求</div>
+
+<table>
+  <thead>
+    <tr><th style="width:25%">项目</th><th style="width:30%">标准</th><th style="width:45%">说明</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>水质类型</td><td>纯化水</td><td class="left">符合《中国药典》纯化水标准</td></tr>
+    <tr><td>电导率（25℃）</td><td>≤ 5.1 μS/cm</td><td class="left">—</td></tr>
+    <tr><td>pH值</td><td>5.0-7.0</td><td class="left">—</td></tr>
+    <tr><td>微生物限度</td><td>≤ 100 CFU/mL</td><td class="left">—</td></tr>
+  </tbody>
+</table>
+
+<!-- ============ 五、生产设备清单 ============ -->
+<div class="section-title">五、生产设备清单</div>
+
+<table>
+  <thead>
+    <tr><th style="width:25%">设备名称</th><th style="width:20%">规格/型号</th><th style="width:20%">用途</th><th style="width:35%">备注</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>真空均质乳化机</td><td>[TBD]</td><td>主乳化</td><td class="left">核心设备，需带真空脱泡功能</td></tr>
+    <tr><td>油相锅</td><td>[TBD]</td><td>A相制备</td><td class="left">带加热和搅拌功能</td></tr>
+    <tr><td>水相锅</td><td>[TBD]</td><td>B相制备</td><td class="left">带加热和搅拌功能</td></tr>
+    <tr><td>预溶锅</td><td>[TBD]</td><td>尿素/尿囊素预溶解</td><td class="left">小容量，带搅拌</td></tr>
+    <tr><td>半自动灌装机</td><td>[TBD]</td><td>灌装</td><td class="left">适配包装规格</td></tr>
+    <tr><td>纯化水系统</td><td>[TBD]</td><td>工艺用纯水制备</td><td class="left">需定期验证</td></tr>
+    <tr><td>乳化中转罐</td><td>[TBD]</td><td>陈化/储存</td><td class="left">304不锈钢材质</td></tr>
+  </tbody>
+</table>
+
+<div class="warn-box">
+  <strong>⚠️ 填写说明：</strong><br>
+  1. [TBD] 处请根据企业实际设备情况填写<br>
+  2. 工艺参数应根据实际生产验证结果进行微调<br>
+  3. 如涉及分段生产（不同企业配合完成），则需在备注中注明<br>
+  4. 如需使用助剂（生产过程中使用但在后续除去的水、挥发性溶剂等），应注明<br>
+  5. 生产记录需与工艺描述一致，保存至保质期后 2 年
+</div>
+
+<!-- ============ 签名区 ============ -->
+<div class="sign-area">
+  <div><strong>编制人：</strong><span class="sign-line">&nbsp;</span></div>
+  <div><strong>审核人：</strong><span class="sign-line">&nbsp;</span></div>
+  <div><strong>批准人：</strong><span class="sign-line">&nbsp;</span></div>
+  <div><strong>日期：</strong><span class="sign-line">&nbsp;</span></div>
+</div>
+
+<div class="print-footer">
+  本工艺简述依据《化妆品注册备案资料管理规定》编制 &nbsp;|&nbsp; 版本：V1.0 &nbsp;|&nbsp; 打印日期：2026-07-28
+</div>
+
+</body>
+</html>

@@ -428,7 +428,7 @@
   <div class="q-block" data-q="q22">
     <div class="q-title">Q22. 使用该产品后，皮肤是否有出现以下不适反应？<span class="q-tag">多选</span></div>
     <div class="option-group" data-name="q22">
-      <label class="option-label"><input type="checkbox" name="q22" value="1"><span class="cb-box"></span>无任何不适反应 ✅</label>
+      <label class="option-label"><input type="checkbox" name="q22" value="1"><span class="cb-box"></span>无任何不适反应</label>
       <label class="option-label"><input type="checkbox" name="q22" value="2"><span class="cb-box"></span>有泛红/刺痛/瘙痒感</label>
       <label class="option-label"><input type="checkbox" name="q22" value="3"><span class="cb-box"></span>有起疹/小疙瘩</label>
       <label class="option-label"><input type="checkbox" name="q22" value="4"><span class="cb-box"></span>有闷痘/粉刺增多</label>
@@ -742,34 +742,6 @@ document.querySelectorAll('input[name="q34"]').forEach(r => {
     }
   });
 });
-
-// --- 5. Q22 "无任何不适反应"互斥逻辑 ---
-(function() {
-  const q22grp = document.querySelector('[data-name="q22"]');
-  if (!q22grp) return;
-  const noIssue = q22grp.querySelector('input[value="1"]');
-  const others = q22grp.querySelectorAll('input[value]:not([value="1"])');
-  if (!noIssue) return;
-
-  noIssue.addEventListener('change', () => {
-    if (noIssue.checked) {
-      others.forEach(cb => {
-        cb.checked = false;
-        cb.closest('.option-label')?.classList.remove('selected');
-      });
-      // 隐藏所有"其他"输入框
-      q22grp.querySelectorAll('.other-input').forEach(el => el.classList.remove('show'));
-    }
-  });
-  others.forEach(cb => {
-    cb.addEventListener('change', () => {
-      if (cb.checked && noIssue.checked) {
-        noIssue.checked = false;
-        noIssue.closest('.option-label')?.classList.remove('selected');
-      }
-    });
-  });
-})();
 
 // --- 6. Q21 → Q21b 联动 ---
 document.querySelectorAll('[name^="q21_r"]').forEach(radio => {

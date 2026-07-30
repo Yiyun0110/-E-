@@ -476,21 +476,21 @@
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d1_r2" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d1_r3" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d1_r4" value="1">是</label><input class="other-input" id="q22_d1_other" placeholder="注明" style="display:inline-block;width:80px;padding:2px 4px;font-size:11px;margin-top:2px"></div></td>
-            <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d1_none" value="1" class="q22-none">无</label></div></td>
+            <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d1_none" value="1">无</label></div></td>
           </tr>
           <tr><td style="white-space:nowrap">使用3天后</td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d2_r1" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d2_r2" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d2_r3" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d2_r4" value="1">是</label><input class="other-input" id="q22_d2_other" placeholder="注明" style="display:inline-block;width:80px;padding:2px 4px;font-size:11px;margin-top:2px"></div></td>
-            <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d2_none" value="1" class="q22-none">无</label></div></td>
+            <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d2_none" value="1">无</label></div></td>
           </tr>
           <tr><td style="white-space:nowrap">使用1周后</td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d3_r1" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d3_r2" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d3_r3" value="1">是</label></div></td>
             <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d3_r4" value="1">是</label><input class="other-input" id="q22_d3_other" placeholder="注明" style="display:inline-block;width:80px;padding:2px 4px;font-size:11px;margin-top:2px"></div></td>
-            <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d3_none" value="1" class="q22-none">无</label></div></td>
+            <td class="safety-td"><div class="safety-grp"><label><input type="checkbox" name="q22_d3_none" value="1">无</label></div></td>
           </tr>
         </tbody>
       </table>
@@ -790,25 +790,7 @@ document.querySelectorAll('input[name="q33"]').forEach(r => {
   });
 });
 
-// --- 6. Q22 "无任何不适"互斥（每阶段） ---
-document.querySelectorAll('.q22-none').forEach(el => {
-  el.addEventListener('change', function() {
-    const row = this.closest('tr');
-    const others = row.querySelectorAll('input[type="checkbox"]:not(.q22-none)');
-    if (this.checked) {
-      others.forEach(cb => { cb.checked = false; });
-    }
-  });
-  // 其他勾选时取消"无"
-  const row = el.closest('tr');
-  row.querySelectorAll('input[type="checkbox"]:not(.q22-none)').forEach(cb => {
-    cb.addEventListener('change', function() {
-      if (this.checked) { el.checked = false; }
-    });
-  });
-});
-
-// --- 7. Q21 → Q21b 联动 ---
+// --- 6. Q21 → Q21b 联动 ---
 document.querySelectorAll('[name^="q21_r"]').forEach(radio => {
   radio.addEventListener('change', updateQ21b);
 });
@@ -842,7 +824,7 @@ function updateQ21b() {
   tbody.innerHTML = html;
 }
 
-// --- 8. 进度条 ---
+// --- 7. 进度条 ---
 const Q_IDS = ['q1','q2','q3','q4','q5','q6','q7','q8',
   'q9','q10','q11','q12','q13','q14','q15','q16','q17a','q17b',
   'q18','q19','q20','q21','q21b','q22','q23','q24','q24b','q25',
@@ -903,7 +885,7 @@ function isQuestionAnswered(id) {
 document.addEventListener('change', calcProgress);
 document.addEventListener('input', calcProgress);
 
-// --- 9. 提交 ---
+// --- 8. 提交 ---
 function submitSurvey() {
   let firstUnanswered = null;
   for (const id of Q_IDS) {
@@ -1030,7 +1012,7 @@ function submitSurvey() {
   console.log('导出用: downloadSurveyData()');
 }
 
-// --- 10. 数据导出 ---
+// --- 9. 数据导出 ---
 function downloadSurveyData() {
   const keys = Object.keys(localStorage).filter(k => k.startsWith('survey_ve_pilot_'));
   if (keys.length === 0) { alert('暂无中试数据'); return; }

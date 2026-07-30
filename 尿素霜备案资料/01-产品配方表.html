@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品配方表 — 尿素霜</title>
+<style>
+  @page { margin: 15mm 10mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "微软雅黑", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    padding: 30px 25px;
+    background: #fff;
+  }
+  h1 {
+    font-size: 18pt;
+    text-align: center;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .info-bar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #f7f8fa;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-size: 10pt;
+  }
+  .info-bar span { white-space: nowrap; }
+  .info-bar strong { font-weight: 600; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin-bottom: 18px;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 5px 8px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  th {
+    background: #e9ecef;
+    font-weight: 600;
+    font-size: 10pt;
+  }
+  .left { text-align: left; }
+  .highlight { background: #fff8e1; }
+
+  .section-title {
+    font-size: 12pt;
+    font-weight: 600;
+    margin: 20px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid #2563eb;
+  }
+
+  .note-box {
+    background: #f0f4ff;
+    border: 1px solid #b3c9ff;
+    border-radius: 5px;
+    padding: 12px 16px;
+    font-size: 9.5pt;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .note-box strong { color: #1a4db7; }
+  .warn-box {
+    background: #fff7ed;
+    border: 1px solid #fcd6a5;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 9.5pt;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .warn-box strong { color: #b45309; }
+  .green-box {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 9.5pt;
+    margin-bottom: 16px;
+  }
+
+  .sign-area {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10pt;
+  }
+  .sign-area > div { min-width: 200px; }
+  .sign-line { border-bottom: 1px solid #333; min-width: 160px; display: inline-block; height: 1.2em; }
+
+  @media print {
+    body { padding: 0; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1>化妆品备案——产品配方表</h1>
+<p class="subtitle">Formula Sheet for Cosmetic Filing</p>
+
+<div class="info-bar">
+  <span><strong>产品名称：</strong>[产品名称]</span>
+  <span><strong>产品类别：</strong>普通化妆品（保湿护肤霜）</span>
+  <span><strong>适用人群：</strong>成人通用</span>
+  <span><strong>生产批号：</strong>[ ]</span>
+  <span><strong>备案日期：</strong>[ ]</span>
+</div>
+
+<!-- ============ 表1：全成分配方表 ============ -->
+<div class="section-title">一、全成分配方表</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:5%">序号</th>
+      <th style="width:14%">原料中文名称</th>
+      <th style="width:16%">INCI名称</th>
+      <th style="width:26%">商品名/备注</th>
+      <th style="width:8%">百分含量<br>(w/w%)</th>
+      <th style="width:10%">使用目的</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td class="left">水</td><td class="left">Aqua</td><td class="left">纯化水</td><td>余量至100%</td><td>溶剂</td></tr>
+    <tr><td>2</td><td class="left">甘油</td><td class="left">Glycerin</td><td class="left">—</td><td class="highlight">[TBD]%</td><td>保湿剂</td></tr>
+    <tr><td>3</td><td class="left">尿素</td><td class="left">Urea</td><td class="left">—</td><td class="highlight">[TBD]%</td><td>保湿剂、皮肤调理剂</td></tr>
+    <tr><td>4</td><td class="left">辛酸/癸酸甘油三酯</td><td class="left">Caprylic/Capric Triglyceride</td><td class="left">GTCC</td><td class="highlight">[TBD]%</td><td>润肤剂</td></tr>
+    <tr><td>5</td><td class="left">棕榈酸乙基己酯</td><td class="left">Ethylhexyl Palmitate</td><td class="left">2EHP</td><td class="highlight">[TBD]%</td><td>润肤剂</td></tr>
+    <tr><td>6</td><td class="left">异壬酸异壬酯</td><td class="left">Isononyl Isononanoate</td><td class="left">ININ</td><td class="highlight">[TBD]%</td><td>润肤剂</td></tr>
+    <tr><td>7</td><td class="left">聚二甲基硅氧烷</td><td class="left">Dimethicone</td><td class="left">DC200/350</td><td class="highlight">[TBD]%</td><td>润肤剂、成膜剂</td></tr>
+    <tr><td>8</td><td class="left">肉豆蔻酸异丙酯</td><td class="left">Isopropyl Myristate</td><td class="left">IPM</td><td class="highlight">[TBD]%</td><td>润肤剂、溶剂</td></tr>
+    <tr><td>9</td><td class="left">霍霍巴籽油</td><td class="left">Simmondsia Chinensis Seed Oil</td><td class="left">霍霍巴油</td><td class="highlight">[TBD]%</td><td>润肤剂</td></tr>
+    <tr><td>10</td><td class="left">鲸蜡硬脂醇</td><td class="left">Cetearyl Alcohol</td><td class="left">1618醇</td><td class="highlight">[TBD]%</td><td>乳化稳定剂、增稠剂</td></tr>
+    <tr><td>11</td><td class="left">鲸蜡硬脂基葡糖苷</td><td class="left">Cetearyl Glucoside</td><td class="left">Montanov 68 组分①</td><td class="highlight">[TBD]%</td><td>乳化剂</td></tr>
+    <tr><td>12</td><td class="left">甘油硬脂酸酯</td><td class="left">Glyceryl Stearate</td><td class="left">A165 组分①</td><td class="highlight">[TBD]%</td><td>乳化剂</td></tr>
+    <tr><td>13</td><td class="left">PEG-100硬脂酸酯</td><td class="left">PEG-100 Stearate</td><td class="left">A165 组分②</td><td class="highlight">[TBD]%</td><td>乳化剂</td></tr>
+    <tr><td>14</td><td class="left">丙二醇</td><td class="left">Propylene Glycol</td><td class="left">—</td><td class="highlight">[TBD]%</td><td>保湿剂、溶剂</td></tr>
+    <tr><td>15</td><td class="left">尿囊素</td><td class="left">Allantoin</td><td class="left">—</td><td class="highlight">[TBD]%</td><td>皮肤调理剂</td></tr>
+    <tr><td>16</td><td class="left">醋酸生育酚（维生素E）</td><td class="left">Tocopheryl Acetate</td><td class="left">维生素E</td><td class="highlight">[TBD]%</td><td>抗氧化剂</td></tr>
+    <tr><td>17</td><td class="left">卡波姆</td><td class="left">Carbomer</td><td class="left">卡波姆940</td><td class="highlight">[TBD]%</td><td>增稠剂、乳化稳定剂</td></tr>
+    <tr><td>18</td><td class="left">黄原胶</td><td class="left">Xanthan Gum</td><td class="left">—</td><td class="highlight">[TBD]%</td><td>增稠剂、稳定剂</td></tr>
+    <tr><td>19</td><td class="left">EDTA二钠</td><td class="left">Disodium EDTA</td><td class="left">EDTA</td><td class="highlight">[TBD]%</td><td>螯合剂</td></tr>
+    <tr><td>20</td><td class="left">苯氧乙醇</td><td class="left">Phenoxyethanol</td><td class="left">—</td><td class="highlight">[TBD]%</td><td>防腐剂</td></tr>
+    <tr><td>21</td><td class="left">羟苯甲酯</td><td class="left">Methylparaben</td><td class="left">甲酯</td><td class="highlight">[TBD]%</td><td>防腐剂</td></tr>
+    <tr><td>22</td><td class="left">羟苯丙酯</td><td class="left">Propylparaben</td><td class="left">丙酯</td><td class="highlight">[TBD]%</td><td>防腐剂</td></tr>
+  </tbody>
+</table>
+
+<div class="note-box">
+  <strong>注：</strong>① Montanov 68 = Cetearyl Alcohol (and) Cetearyl Glucoside（鲸蜡硬脂醇 和 鲸蜡硬脂基葡糖苷）<br>
+  ② A165（Arlacel 165）= Glyceryl Stearate (and) PEG-100 Stearate（甘油硬脂酸酯 和 PEG-100硬脂酸酯）<br>
+  ③ 上表序号11（鲸蜡硬脂基葡糖苷）含量指 Montanov 68 中该组分的实际投入量，非复合原料总投入量
+</div>
+
+<!-- ============ 表2：防腐剂合规确认 ============ -->
+<div class="section-title">二、防腐剂/限用组分合规确认</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>限用组分</th>
+      <th>配方中含量(%)</th>
+      <th>《安全技术规范》限值</th>
+      <th>合规判定</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">苯氧乙醇</td>
+      <td class="highlight">[TBD]</td>
+      <td>≤ 1.0%</td>
+      <td>☐ 合规 ☐ 不合规</td>
+    </tr>
+    <tr>
+      <td class="left">羟苯甲酯（单一酯）</td>
+      <td class="highlight">[TBD]</td>
+      <td>≤ 0.4%</td>
+      <td>☐ 合规 ☐ 不合规</td>
+    </tr>
+    <tr>
+      <td class="left">羟苯丙酯（单一酯）</td>
+      <td class="highlight">[TBD]</td>
+      <td>≤ 0.4%</td>
+      <td>☐ 合规 ☐ 不合规</td>
+    </tr>
+    <tr>
+      <td class="left"><strong>羟苯甲酯 + 羟苯丙酯（混合酯总量）</strong></td>
+      <td class="highlight"><strong>[TBD]</strong></td>
+      <td><strong>≤ 0.8%</strong></td>
+      <td>☐ 合规 ☐ 不合规</td>
+    </tr>
+    <tr>
+      <td class="left">尿囊素</td>
+      <td class="highlight">[TBD]</td>
+      <td>已使用原料目录 ≤ 2%</td>
+      <td>☐ 合规 ☐ 不合规</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warn-box">
+  <strong>⚠️ 重要提醒：</strong>
+  · 羟苯甲酯（甲酯）和 羟苯丙酯（丙酯）均为防腐剂，各自 ≤0.4%，且两者之和 ≤0.8%<br>
+  · 所有 [TBD] 处请填入实际投料质量百分比，合计应为 100%<br>
+  · 如使用三乙醇胺/氢氧化钠中和卡波姆940，请在第22项之后补录
+</div>
+
+<!-- ============ 表3：标签成分表（备案用） ============ -->
+<div class="section-title">三、标签用全成分标识</div>
+
+<div class="green-box">
+  <strong>成分（Ingredients）：</strong><br>
+  水、甘油、尿素、辛酸/癸酸甘油三酯、棕榈酸乙基己酯、异壬酸异壬酯、<br>
+  聚二甲基硅氧烷、肉豆蔻酸异丙酯、霍霍巴籽油、鲸蜡硬脂醇、鲸蜡硬脂基葡糖苷、<br>
+  甘油硬脂酸酯、PEG-100硬脂酸酯、丙二醇、尿囊素、醋酸生育酚（维生素E）、<br>
+  卡波姆、黄原胶、EDTA二钠、苯氧乙醇、羟苯甲酯、羟苯丙酯<br><br>
+  <strong>※ 标签成分应按实际含量从高到低降序排列，以上仅为示例顺序</strong>
+</div>
+
+<!-- ============ 表4：原料供应商记录 ============ -->
+<div class="section-title">四、原料供应商信息（建议备查）</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>原料名称</th>
+      <th>供应商名称</th>
+      <th>批号</th>
+      <th>COA已获取</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>尿素</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>尿囊素</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>维生素E</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>苯氧乙醇</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>丙二醇</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>甘油</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>EDTA二钠</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>黄原胶</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>卡波姆940</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>Montanov 68</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>A165</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>1618醇</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>霍霍巴油</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>ININ</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>IPM</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>GTCC</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>DC200/350</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>2EHP</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>羟苯甲酯</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+    <tr><td>羟苯丙酯</td><td>[ ]</td><td>[ ]</td><td>☐</td></tr>
+  </tbody>
+</table>
+
+<!-- ============ 签名区 ============ -->
+<div class="sign-area">
+  <div>
+    <strong>编制人：</strong><span class="sign-line">&nbsp;</span>
+  </div>
+  <div>
+    <strong>审核人：</strong><span class="sign-line">&nbsp;</span>
+  </div>
+  <div>
+    <strong>日期：</strong><span class="sign-line">&nbsp;</span>
+  </div>
+</div>
+
+<div style="margin-top:24px; font-size:9pt; color:#888; text-align:center; border-top:1px solid #ddd; padding-top:10px;">
+  本配方表依据《化妆品注册备案资料管理规定》编制 &nbsp;|&nbsp; 版本：V1.0
+</div>
+
+</body>
+</html>
